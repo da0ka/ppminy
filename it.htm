@@ -1,0 +1,45 @@
+<title>help</title><style>body,p{margin:0}p{background:#ddd}li{padding:0 0 .5em}code{border:1px solid gray;border-radius:4px;background:#ccc}</style>
+<h2>ppminy</h2>
+This program is web contents compressor like html, js, inline css, inline svg, etc. Compression algorithm is PPM. Compressed data is self extracted.
+<h2>GUI</h2>
+<ul>
+	<li>method<ol>
+		<li>tiny<p>smallest but usually worst compression. it fits small data.
+		<li>II<p>implemented information inheritance.
+		<li>II2<p>bit stronger than above.
+		<li>II+SEE<p>implemented above and Secondary Escape Estimation.
+		<li>II+SEE2<p>implemented above and additional SEE. usually best compression but biggest decoder. it fits big data.</ol>
+	<li>order<p>context order. limit is 15(tiny), 31(II,II2) and 63(II+SEE,II+SEE2). higher is slower and larger memory usage.
+	<li>encode<p>start compression of textarea. its text(unicode) is converted to option's charset. <b>all <code>\r, \r\n</code> is replaced by <code>\n</code></b>.
+	<li>do<ul>
+		<li>eval<p>evaluates the decoded JavaScript code.
+		<li>write<p>writes a decoded string to document. typically used with HTML.</ul>
+	<li>textarea<p>if drop a file here, start compression. the file is opend as binary mode. so line break is not changed.
+	<li>textarea(under)<p>result of compression. you can edit it.
+	<li>multi-pass #<p>multi-pass encoding to decide best context order. 0 menas 1 pass, otherwise #+2 pass. max=63. be careful, order option is automatically updated.
+	<li>RawDecoder<p>output raw decoder(fat) compressible by gzip. base64+it is more compressible.
+	<li>format<ul>
+		<li>js<p>output with no wrapper. default output file extension is "js".
+		<li>html<p>output is sandwiched between first textarea's html and second textarea's html. default output file extension is "htm".
+			<p>preset summons wrapper as html(meta tag's charset is variable. if selected base64 and base122 then utf8 else l1).</ul>
+	<li>charset<ul>
+		<li>inText<ul>
+			<li>utf-8, Latin1<p>unicode(textarea) is contverted to its charset.
+			<li>10d<p>input decimal like <code>0,10,99,255...</code>. separator should be <code>[^0-9]</code>
+			<li>16h<p>input hexa decimal like <code>00,0A,99,FF...</code>. separator should be <code>[^0-9A-Fa-f]</code></ul>
+		<li>inFile<p>dropped file is converted to uint8 array. decoder considers inFile's charset.
+		<li>output<ul>
+			<li>base64<p>compressed data -&gt; <code>[0-9A-Za-z+/]</code>. the overhead is 33%. charset is utf8. decoder is smallest. gzip loves it.
+			<li>base122<p>compressed data -&gt; <code>[\1-\t\x0B\x0C\x0E-!#-%'-[]-\xff\u0180-\u01ff\u0280-\u02ff\u0380-\u03ff\u0480-\u04ff\u0580-\u05ff]</code>. the overhead is 14%. <b>saved charset must be utf8</b>. decoder is biggest.
+			<li>base253<p>compressed data -&gt; <code>[\0-\x0C\x0D-\xFF]</code>. the overhead is 1.2%. maybe <b>\0 is not visible and can't be copied &amp; paste. saved charset must be latin1(iso-8859-1)</b>.</ul>
+		</ul>
+	<li>links gain only<p>if output size is even greater than input size, download link isn't created. but textarea's can be download.
+	<li>files<ul>
+		<li>kill<p>remove all items in list
+		<li>LOAD<p>open a file and start compression
+		<li>Save<p>download all files in list</ul>
+	<li>download<p>download output text as file.
+	<li>test<p>new window to test output text as JavaScript/HTML is opened.
+	<li>reset<p>reset form area
+</ul>
+<h2>license</h2>MIT license

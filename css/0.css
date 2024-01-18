@@ -1,0 +1,72 @@
+*{font-family:MS Gothic,monospace}
+body,html,#ui{height:100%;margin:0;padding:0;overflow:hidden}
+textarea{resize:none}p{margin:0}
+.b textarea{display:block;width:100%;height:50%;border:0}
+input,select,label{cursor:pointer;white-space:nowrap}
+input,select{font-size:inherit}
+label:hover{color:#44f}
+.h{background:#faf;height:1.5em;text-align:center}
+.b{background:#afa;left:0;right:0}
+.f{background:#aaf;bottom:0;height:1.5em}
+.b{top:1.5em;bottom:1.5em}
+.b,.f{position:absolute}
+.h,.f{width:100%}
+.sw{background:#eee;border:1px solid gray}
+#it{background:#fef}
+#ot{background:#ddd}
+#rt{border:0;text-align:left}
+/* format option */
+#ht:checked~#format{display:block;height:9em}
+#format{display:none}
+#format textarea{width:100%;height:4em;display:block}
+
+/* drop area */
+input[type=file]{display:none}
+.tofile{border:1px solid #666;padding:.2em}
+@keyframes rotate{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+ol{border:3px dashed #88a;overflow:auto;background:#c0c0ffc0;margin:0;position:absolute;top:1.5em;bottom:0;left:0;right:0}
+ol:empty:before{content:"Drop files here";display:block;text-align:center;position:relative;top:45%}
+ol li input{border:0}
+ol li{padding:.125rem .25rem;position:relative}
+ol li:not(.done) a~*{display:none}
+ol li:not(.done):before{animation:rotate 1.25s linear infinite;content:" ";display:block;height:100%;width:1.5rem;position:absolute;left:-1rem;top:0;background:url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0iIzI3QUFFMSIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBkPSJNNDYgNGg4djI0aC04eiIvPjxwYXRoIG9wYWNpdHk9Ii45MSIgZD0iTTIzIDExLjczMjA2bDYuOTI4Mi00IDEyIDIwLjc4NDYtNi45MjgyIDR6Ii8+PHBhdGggb3BhY2l0eT0iLjgzIiBkPSJNNy43MzIwNSAyOS45MjgybDQtNi45MjgyIDIwLjc4NDYxIDEyLTQgNi45MjgyeiIvPjxwYXRoIG9wYWNpdHk9Ii43NSIgZD0iTTQgNTR2LThoMjR2OHoiLz48cGF0aCBvcGFjaXR5PSIuNjYiIGQ9Ik0xMS43MzIwNSA3Ni45MjgybC00LTYuOTI4MiAyMC43ODQ2LTEyIDQgNi45MjgyeiIvPjxwYXRoIG9wYWNpdHk9Ii41OCIgZD0iTTI5LjkyODIgOTIuNTE2NjZsLTYuOTI4Mi00IDEyLTIwLjc4NDYxIDYuOTI4MiA0eiIvPjxwYXRoIG9wYWNpdHk9Ii41IiBkPSJNNTQgOTZoLThWNzJoOHoiLz48cGF0aCBvcGFjaXR5PSIuNDEiIGQ9Ik03Ni45MjgyIDg4LjUxNjY2bC02LjkyODIgNC0xMi0yMC43ODQ2MSA2LjkyODItNHoiLz48cGF0aCBvcGFjaXR5PSIuMzMiIGQ9Ik05Mi41MTY2NiA3MGwtNCA2LjkyODItMjAuNzg0Ni0xMiA0LTYuOTI4MnoiLz48cGF0aCBvcGFjaXR5PSIuMjUiIGQ9Ik05NiA0NnY4SDcydi04eiIvPjxwYXRoIG9wYWNpdHk9Ii4xNiIgZD0iTTg4LjUxNjY2IDIzbDQgNi45MjgyLTIwLjc4NDYgMTItNC02LjkyODJ6Ii8+PHBhdGggb3BhY2l0eT0iLjA4IiBkPSJNNzAgNy43MzIwNWw2LjkyODIgNC0xMiAyMC43ODQ2MS02LjkyODItNHoiLz48L2c+PC9zdmc+)center center/1rem 1rem no-repeat}
+ol li.done:before{content:" ";display:block;height:100%;width:1.5rem;position:absolute;left:-1rem;top:0;background:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download"><path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/><path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/></svg>')center center/1rem 1rem no-repeat}
+ol li a{color:#00f}
+ol li a:link{color:#22f;font-weight:700}
+ol li a:hover{color:red}
+.dover{background:#aae}
+.dpass{background:#c0c0ffc0}
+/* modal main */
+.modalson{
+	background:rgba(240,240,240,.75);
+	overflow:auto;
+	position:fixed;
+	transition:all .2s;
+}
+.modal>input{display:none}
+
+.modalson>label:first-child{
+	border-style:solid;
+	border-width:1px 0;
+	border-color:#eae #212 #212 #434;
+	display:block;width:100%;
+	text-align:center
+}
+.modalson>label:hover{background:rgba(208,208,208.75)}
+.modal .closer{
+	 left:0;right:0;top:0;bottom:0;
+	 position:fixed;
+	 z-index:-1
+}
+.modal input:checked~ .closer{
+	background:rgba(0,0,0,.5);z-index:998
+}
+/* modal size */
+.m-up{top:100%;left:0;right:0;bottom:1.25em}
+.m-l2r{top:1.5em;width:100%;right:100%;bottom:1.5em}
+.m-r2l{top:1.5em;left:66%;width:34%;bottom:1.5em}
+
+/* modal switch */
+.modal input:checked~.m-up{top:52%;bottom:1.5em}
+.modal input:checked~.m-l2r{right:0}
+.modal input:checked~.m-r2l{left:100%}
