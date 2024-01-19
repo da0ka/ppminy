@@ -11,10 +11,9 @@
 		<textarea id=ot placeholder=output></textarea>
 	</div>
 	<input class=f type=button id=rt>
-	<p style="position:absolute;bottom:1.5em;left:35%">
-		<input type=button value=download id=dl>
-		<input type=button value=test id=test>
-		<input type=reset value=reset>
+	<p id=b3><input type=button value=Download id=dl>
+		<input type=button value=Test id=test>
+		<input type=reset value=Reset>
 </form>
 <form class=modal name=uform>
 	<input type=checkbox id=uload>
@@ -30,7 +29,6 @@
 	<input type=checkbox checked id=opt>
 	<form class="modalson m-r2l" name=oform style="border-left:1px solid #888">
 		<p>multi-pass<input type=text size=2 value=0 id=mp title="0-63"><br>
-		<label><input type=checkbox id=pretty>RawDecoder</label>
 		<fieldset><legend>format</legend>
 			<label><input type=radio name=jh id=js checked>js</label>
 			<label><input type=radio name=jh id=ht>html(wrapper)
@@ -45,6 +43,8 @@
 		inFile<select id=ip2><option value="">utf-8<option value=866>ibm866<option value=l1>latin1<option value=l2>latin2<option value=l3>latin3<option value=l4>latin4<option>cyrillic<option>arabic<option>greek<option>hebrew<option>logical<option value=l6>latin6<option>iso-8859-13<option>iso-8859-14<option value=l9>iso-8859-15<option>iso-8859-16<option value=koi>koi8-r<option>koi8-u<option>mac<option>dos-874<option>cp1250<option>cp1251<option>cp1253<option value=l5>cp1254<option>cp1255<option>cp1256<option>cp1257<option>cp1258<option>x-mac-cyrillic<option>gbk<option>gb18030<option>hz-gb-2312<option>big5<option>euc-jp<option>iso-2022-jp<option>sjis<option>korean<option>iso-2022-kr<option>utf-16<option>utf-16be<option>x-user-defined<option>iso-2022-cn</select><br>
 		output<select id=op><option>base64<option selected>base122(utf-8)<option>base253(latin1)</select>
 		</fieldset>
+		<label><input type=checkbox id=pretty>RawDecoder</label><br>
+		<label><input type=checkbox id=dae checked>drop &amp; embed text</label><br>
 		<label><input type=checkbox id=lg>links gain only</label> <input type=reset value=reset>
 	</form>
 </div><script src="js/gui/init.js"></script><script src="js/coder/base.js"></script>
