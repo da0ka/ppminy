@@ -75,7 +75,7 @@ it.ondrop=function(e){this.style.background="#fff";e=e||event;
 	e.preventDefault(e.stopPropagation());
 	r.onload=async function(){
 		var t=new Date,a=new Uint8Array(r.result),b,c,d=ip2.selectedIndex,cs=ip2.options[d].value;
-		it.value=new TextDecoder(cs||"utf8").decode(a);
+		if(dae.checked)it.value=new TextDecoder(cs||"utf8").decode(a);
 		for(b of a)if(b>127){c=1;break}
 		b=await(mp.value|0?bestOrder(a,PPMe):PPMe(a,mo.value&255,rate));
 		done(b,a.length,b.length,!c,t,d&&cs)
