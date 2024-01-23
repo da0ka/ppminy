@@ -19,7 +19,7 @@ function n2cjk(n){return S(n+=n<6400?13312:n<27136?13568:16896)}
 
 for(var a=64,e="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/".split(""),d=[],e128,d128,e252,e322,d322,e2070,d2070;a--;)d[e[a]]=a;
 this.e64=function(s){
-	for(var i=0,j=0,n,l=s.length,m=l%3,t=[];i<l;)t[j++]=e[(n=s[i++]<<16|s[i++]<<8|s[i++])>>18&63]+e[n>>12&63]+e[n>>6&63]+e[n&63];
+	for(var i=0,j=0,n,l=s.length,m=l%3,t=[];i<l;t[j++]=e[n>>18&63]+e[n>>12&63]+e[n>>6&63]+e[n&63])n=s[i++]<<16|s[i++]<<8|s[i++];
 	if(m)t[--j]=t[j].substr(0,t[j].length-3+m);
 	return t.join("")};
 
