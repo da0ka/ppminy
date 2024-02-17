@@ -1,0 +1,50 @@
+<title>it</title><meta charset=shift_jis><style>body,p{margin:0}p{background:#ddd}li{padding:0 0 .5em}code{border:1px solid gray;border-radius:4px;background:#ccc}</style>
+<h2>ppminy</h2>
+本作はweb素材(html,js等)の圧縮に特化したprogramである. PPMという手法を用いており,圧縮も展開もやや遅いが,素材が小さい場合は瞬時に完了する(設定と環境次第で激変)
+<h2>GUI</h2>
+<ul>
+	<li>手法<ol>
+		<li>tiny<p>復号器は最軽量、小さい素材に対して効果的
+		<li>II<p>遺伝法実装により圧縮率向上
+		<li>II2<p>上記の改良型. 最も微妙な性能
+		<li>II+SEE<p>Secondary Escape Estimation(SEE)実装. 大き目の素材が好物
+		<li>II+SEE2<p>SEEを追加実装. 復号器は最大. 超巨大っポイ素材の圧縮に向いている</ol>
+	<li>order<p>予測に用いる文脈の長さ指定. 限度は15(tiny), 31(II,II2), 63(II+SEE,II+SEE2)となる. 長い方が高圧縮率になる事もあるが,速度が犠牲になり空間消費量も増大,最悪の場合死に至るわけがない
+	<li>encode<p>textareaに入力した文字列を圧縮. 圧縮前にUnicodeからoptionで指定したcharsetに変換され. <b>全ての<code>\r, \r\n</code>を<code>\n</code>とみなす</b>
+	<li>do<ul>
+		<li>eval<p>復号後の文字列をJavaScriptとみなして実行
+		<li>write<p>復号後の文字列を書き出す. 通常htmlと御一緒に用いる</ul>
+	<li>textarea(上段)<p>ここに投下したfileは圧縮される. その場合[encode]を押下した場合と異なり,改行類は原型のまま扱う. ついでにUnicodeから変換する手順も省略
+	<li>textarea(下段)<p>圧縮結果が出力される. 編集するなり焼くなりご自由に
+	<li>multi-pass #<p>複数回圧縮を試みて最適なorderを選択. 0=無効, 1以上で #+2 回試行. 最大63. orderの設定は自動更新されるので注意
+	<li>format<ul>
+		<li>js<p>純粋js fileと同等. 出力fileの拡張子はjsが既定値
+		<li>html<p>圧縮結果をhtmlで囲む. そのhtmlをformat欄の上段textareaと下段textareで指定する. 出力fileの拡張子はhtmが既定値
+			<p>presetでhtmlの雛型を召喚する(meta要素のcharset属性はbase253ならl1, それ以外はutf8が既定値)</ul>
+	<li>charset<ul>
+		<li>inText<ul>
+			<li>utf-8, Latin1<p>textareaの文字列(Unicode)を選択した方式に変換
+			<li>10d<p>10進数列(<code>0,10,99,255...</code>)で入力. 区切り文字は<code>[^0-9]</code>
+			<li>16h<p>16進数列(<code>00,0A,99,FF...</code>)で入力. 区切り文字は<code>[^0-9A-Fa-f]</code></ul>
+		<li>inFile<p>file投下して圧縮した場合に復号器に書き込む文字符号を指定. また,上段textaraにfileを投下した時に埋め込む文字列の符号化方式もこれが反映する
+		<li>output<ul>
+			<li>base64<p>圧縮文は<code>[0-9A-Za-z+/]</code>のみからなる文字列となる. 膨張率約33%. 復号回路は最小. gzipで再圧縮しやすい
+			<li>base122<p>圧縮文は<code>[\1-\t\x0B\x0C\x0E-!#-%'-[]-\xff\u0180-\u01ff\u0280-\u02ff\u0380-\u03ff\u0480-\u04ff\u0580-\u05ff]</code>のみからなる文字列となる. 膨張率約14%. <b>文字符号はutf8として保存すべし</b>. 復号回路は最大
+			<li>base253<p>圧縮文は<code>[\0-\x0C\x0D-\xFF]</code>のみからなる文字列となる. 膨張率約1.2%. <b>NUL文字(\0)は複写や貼り付け不能. 文字符号はlatin1(iso-8859-1)として保存すべし</b></ul>
+		</ul>
+	<li>RawDecoder<p>無圧縮の復号器を生成. gzipで再圧縮しやすくなる
+	<li>drop &amp; embed text<p>textareaにfileを投下すると同時に文字列を埋め込む. 無効にしておくと描画処理を省く分高速. ついでに空間消費量も節約
+	<li>links gain only<p>圧縮結果が元fileより小さければdownload用URLを生成
+	<li>files<ul>
+		<li>kill<p>圧縮結果を全て破棄
+		<li>LOAD<p>fileを開いて圧縮開始
+		<li>Save<p>圧縮結果を全て保存</ul>
+	<li>Download<p>下段textareaの内容保存
+	<li>Test<p>別窓を開いてその中身に下段textareaの内容を埋め込む
+	<li>Reset<p>初期化
+</ul>
+<h2>作者</h2>
+<p>da0ka. 連絡先da0ja@yahoo.co.jp
+<h2>license</h2>
+<p>MIT license
+<p>programを使用した結果については作者は一切責任を負わないので安心して下さい。責任利益損害全て利用者様のものです
