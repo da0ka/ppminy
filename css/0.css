@@ -6,9 +6,8 @@ input,select,label{cursor:pointer;white-space:nowrap}
 input,select{font-size:inherit}
 label:hover{color:#44f}
 .h{background:#faf;height:1.5em;text-align:center}
-.b{background:#afa;left:0;right:0}
+.b{background:#afa;left:0;right:0;top:1.5em;bottom:2em}
 .f{background:#aaf;bottom:0;height:1.5em}
-.b{top:1.5em;bottom:1.5em}
 .b,.f{position:absolute}
 .h,.f{width:100%}
 .sw{background:#eee;border:1px solid gray}
