@@ -48,7 +48,7 @@ const b253d=(q,c,x)=>["Array.from(",q,// [1]"'`
 	"(i=c.charCodeAt()%65533)>>8?129+' \x82\x83\x84\x85\x86\x87\x88\x89\x8A\x8B\x8C \x8E  \x91\x92\x93\x94\x95\x96\x97\x98\x99\x9A\x9B\x9C \x9E\x9F'.indexOf(c):i",
 	x||"",//[8] )-# or )^# or empty
 ")"].join(""),
-bX=[")^",")+",")-"],bE=[64,122,253],cE=["eU8","eL1"],Do=["eval","document.write"];
+bX=[")^",")+",")-"],bE=[64,122,253],cE=["eU8","eL1"],Do=["eval(","document.write("];
 
 function rate(a,b){rt.style.width=rt.value=((a/b*1e4|0)/100)+"%"}
 function done(A,a,b,u8,t,cs){
@@ -87,13 +87,13 @@ dl.onclick=function(a,t){
 		a=document.createElement("a"),a.href=URL.createObjectURL(new Blob([s2b(t)])),
 		a.download=js.checked?"a.js":"a.htm",
 		a.click(),URL.revokeObjectURL(a.href);
-	else rt.value="nothing in output!"
+	else rt.value="output nothing!"
 };
 save.onclick=function(){
 	for(var b=flist.getElementsByTagName("a"),c=0,d;d=b[c++];)d.click();
 	if(c<2)b=this,b.innerText="miss",setTimeout(function(){b.innerText="Save"},500)
 };
-test.onclick=(a,b)=>(a=ot.value.trim())?window.open().document.write(b=js.checked?"<script>":"",a,b&&"<\/script>"):rt.value="Nothing in Output!";
+test.onclick=(a,b)=>(a=ot.value.trim())?window.open().document.write(b=js.checked?"<script>":"",a,b&&"<\/script>"):rt.value="Output Nothing!";
 
 function s2b(s){
 	if(/[\u3400-\uc1ff]/.test(s))s=new Uint8Array(CharCoder.eU16(s)); //from base32768
@@ -115,7 +115,9 @@ function getSFX(A,a,u8,cs){
 	d=!e?"String.fromCharCode(...":d&&a>65499&&!cs?"":`new TextDecoder(${cs?"'"+cs+"'":""}).decode(new Uint8Array(`;
 	A=Base["e"+i](A,f>>=2,g);A=i<82?`Array.from(atob("${A}"),a=>a.charCodeAt())`:i<252?`"${A}"`:b253d("`",A,f&&bX[g]+f);
 	g=getwrap();pretty.checked&&eval("let _,"+fn+";"+dec.replace(/eval.+/,"dec="+fn));
-	return`${g[0]}${dec};${Do[act.selectedIndex]}(${d}${fn}(${A})${e}))${g[1]}`
+	i=act.selectedIndex;
+	i>1?Do[2]=(vn.value.replace(/[^\w$.]|^\d+/g,"")||fn)+"=":e+=")";
+	return`${g[0]}${dec};${Do[i]}${d}${fn}(${A})${e})${g[1]}`
 }
 async function bestOrder(A,codec){
 	function rate(c,d){rt.value=`order${a} ${b} ${c} ${((c/d*1e4|0)/100)}%`}
