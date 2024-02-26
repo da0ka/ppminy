@@ -3,7 +3,7 @@
 	<div class=h>
 		<select id=type><option>tiny<option>II<option>II2<option>II+SEE<option>II+SEE2</select>order<input type=text value=2 size=2 id=mo>+2
 		<input type=button value=encode id=en>
-		do<select id=act><option>eval<option>write</select>
+		do<select id=act><option>eval<option>write<option>stored</select>
 		<label for=opt class=sw>&#160;&#8801;&#160;</label>
 		<label for=uload class=sw>files</label></div>
 	<div class=b>
@@ -28,7 +28,7 @@
 <div class=modal>
 	<input type=checkbox checked id=opt>
 	<form class="modalson m-r2l" name=oform style="border-left:1px solid #888">
-		<p>multi-pass<input type=text size=2 value=0 id=mp title="0-63">
+		<p>multi-pass<input type=text size=2 id=mp title="0-63"><br>
 		<fieldset><legend>format</legend>
 			<label><input type=radio name=jh id=js checked>js</label>
 			<label><input type=radio name=jh id=ht>html(wrapper)
@@ -45,7 +45,8 @@
 		</fieldset>
 		<label><input type=checkbox id=pretty>RawDecoder</label><br>
 		<label><input type=checkbox id=dae checked>drop &amp; embed text</label><br>
-		<label><input type=checkbox id=lg>links gain only</label>
+		<label><input type=checkbox id=lg>links gain only</label><br>
+		variable name:<input style="display:block;width:100%" id=vn placeholder="document.lastChild.innerHTML" value=_>
 		<input type=reset value=reset>
 		<a href='javascript:(function(d,s){s=d.createElement("script");s.src="js/gui/exit.js";d.body.appendChild(s)})(document)'>exit</a>
 	</form>
