@@ -11,12 +11,17 @@ This program is web contents compressor like html, js, inline css, inline svg, e
 		<li>II+SEE2<p>implemented above and additional SEE. usually best compression but biggest decoder. it fits big data.</ol>
 	<li>order<p>context order. limit is 15(tiny), 31(II,II2) and 63(II+SEE,II+SEE2). higher is slower and larger memory usage.
 	<li>encode<p>start textarea compression. its text(unicode) is converted to option's charset. <b>all <code>\r, \r\n</code> is replaced by <code>\n</code></b>.
-	<li>do<ul>
+	<li><a name=do>do</a><ul>
 		<li>eval<p>evaluates the decoded JavaScript code.
-		<li>write<p>writes a decoded string to document. typically used with HTML.</ul>
-	<li>textarea<p>if drop a file here, start compression. the file is opend as binary mode. so line break is not changed.
+		<li>write<p>writes a decoded string to document. typically used with HTML.
+		<li>stored<p>decoded text is stored to variable. you can decide its name.
+		</ul>
+	<li>textarea(above)<p>if drop a file here, start compression. the file is opend as binary mode. so line break is not changed.
 	<li>textarea(under)<p>result of compression. you can edit it.
 	<li>multi-pass #<p>multi-pass encoding to decide best context order. 0 menas 1 pass, otherwise #+2 pass. max=63. be careful, order option is automatically updated.
+	<li>variable name<p>[variable name] = [decoded text] if selected `<a href=#do>do -- stored</a>`.
+		<p>you can input also <code>document.body.innerHTML</code>, <code>element.textContent</code>, <code>class.prototype.text</code>, etc.
+		<p>if input only <code>[^\w$.]+</code>, [variable name] is changed to [decoder name]. for example, <code>#%&</code> -&gt; <code>b</code>
 	<li>format<ul>
 		<li>js<p>output with no wrapper. default output file extension is "js".
 		<li>html<p>output is sandwiched between first textarea and second textarea. default output file extension is "htm".
