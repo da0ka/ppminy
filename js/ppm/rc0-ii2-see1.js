@@ -3,8 +3,8 @@ use Information inheritance
 use SEE in binary context
 */
 async function PPMe(A,mo,rate){
-	for(var L=0,R=1<<24,B,N=0,a=1,b=A[0],c,d,e,f,l,o,r,t,z=A.length,x=z>>18?65535:z>>16?16383:2047,fn=b=>setTimeout(c=>b(rate(a,z)),1),v=[],C=v,E=[],T=[],M=[],O=[],i=v.c=256;i--;M[i]=Math.sqrt(i))for(o=16,v[i]={s:i,c:0};o--;)T[i<<4|o]=0|(i+1<<14)/(i+2);
-	for(mo&=63;d=v[0],d=d.l=[],d.c=0,d.s=v,v=d,i++<mo;)v[0]={s:0,c:0};
+	for(var L=0,R=1<<24,B,N=0,a=1,b=A[0],c,d,e,f,l,o,r,t,z=A.length,x=z>>18?65535:z>>16?16383:2047,fn=b=>setTimeout(c=>b(rate(a,z)),1),v=[],C=v,E=[],T=[],M=[],O=[],i=v.c=256;i--;M[i]=Math.sqrt(i))for(o=16,d=v[i]={s:i,c:0};o--;)T[i<<4|o]=0|(i+1<<14)/(i+2);
+	for(mo&=63;d=d.l=[],d.c=0,d.s=v,v=d,i++<mo;)d=v[0]={s:0,c:0};
 	for(x&=mo<5?-1:mo<15?8191:4095;;){d=0,i=C.length;
 		if(i>1){t=0;
 			for(c of C)if(!E[c.s])f=1+c.c,c.s===b&&(l=f,r=t,d=c),t+=f;
@@ -45,8 +45,8 @@ async function PPMe(A,mo,rate){
 	}
 }
 function PPMd(A){
-	for(var L,R=1,a=1,c=A[0],d,e,f,i,r,t,o,v=[],C=v,E=[],T=[],M=[],O=[],b=v.c=256;b--;M[b]=Math.sqrt(b))for(o=16,v[b]={s:b,c:0};o;)T[b<<4|--o]=0|(b+1<<14)/(b+2);
-	for(;d=v[0],d=d.l=[],d.c=0,d.s=v,v=d,b++<c;)v[0]={s:0,c:0};
+	for(var L,R=1,a=1,c=A[0],d,e,f,i,r,t,o,v=[],C=v,E=[],T=[],M=[],O=[],b=v.c=256;b--;M[b]=Math.sqrt(b))for(o=16,d=v[b]={s:b,c:0};o;)T[b<<4|--o]=0|(b+1<<14)/(b+2);
+	for(;d=d.l=[],d.c=0,d.s=v,v=d,b++<c;)d=v[0]={s:0,c:0};
 	for(;;R*=f){
 		for(i=C.length;R<1e7;R*=256)L=(L<<8|A[a++])>>>0;
 		if(i>1){
@@ -80,5 +80,5 @@ function PPMd(A){
 //decoder
 (a=>decoder={fn:"f",
 64:a,
-122:"for(f=';)Tf=Se/t/R=e>6Q=cP.eOP;gON){Lh[cK.sJKJ]Iif(Hfor(GGc of g)Ft=0;FHELE!ID,e]={s:b:0b};=256++]l[o;H=g=f;n--[0];G;8||>>>k/n0,t<<Ss=>{q[b=d.l	=1+==v=0,=[],}else{.lengthd	dOdJ,v=dGvar k,n,ac,d,s,c|=st7<(P-=8,c=s7-t&255)},i,rov=[,10,13,34,38,92],g,hqlbO;d+s.charCodeAt(a++);f(d))d<12((e=d8&7)<7&&f(v[e]),d&27)bTGa6,v[aT4|a]=0|(b+114)/(b+2)d,,~lTv[Gso;*LGi<1e7*)k=(k8|)0i>1D)t1+cO;Sii=n/(t+f)0;r=c=r<tD&&r<(tf+cO))break;t-}c,SPO4|MathJqrt(gJ-1)]46384-f<fLt]e6c]-6,Se}}k-=n*tcLs[a=bPJ,dN2(cO2)8Lr=EtePO&&gJ)g[rN=tg=r||i}Hc=Lg	GigO;g!;vJ)tO+v*2*(6+t)iQ*t?2+R2:R1.6,vOeQ?6:e,K[v|e};Gv	?g	:();c;)d=K];K].l}h=[]FIi=TH!(gJ))return s}}}';_=/[^ -CM[-~]/.exec(f);)with(f.split(_))f=join(shift());eval(f)",
+122:"for(f='e/t/D=e>6Z=cY.eXY;gXW=256V++]Ul[oUT;)S,dRf=Q>>>Pk/nP0O8||Nif(;=g=f;nfor(;--){c of g)h[c.st=0;!]Qs=>{,t<<,eq[b=d.l=0,	=1+==v=[],}else{]={s:b:0.lengthddX	d,v=dvar k,n,a	cR,s,c|=sPt7<N(TY-=8,c=s7-t&255)},i,r	o	v=[,10,13,34,38,92],g,hqlbXV;d+s.charCodeAt(a++);f(d))d<12N((e=dP8&7)<7&&f(v[e])R&27);bSa6R[b};aS4|a]=0|(b+114)/(b+2);,~l[0]Sd[b}so;*i<1e7*V)k=(k8|T)P0i>1)t1+cX;QiPNi=n/(t+f)P0;r=Oc=r<t&&r<(tf+cX))break;t-}c[0],QYX4|Mathqrt(g-1)]P46384-fO<ft	]eP6c	]-P6,Qe}}k-=n*tcs[aU=bYRW2(cX2)P8r=teYXP&&g)g[rUW=tg=r||i}c=gigX;g!;v)tX+v*2*(6+t)iZ*t?2+D2:D1.6,vXeZ?6:e,U[v|e}v?g:();c;)d=];].l}h=[]];i=S!(g))return s}}}';_=/[-N-ZD]/.exec(f);)with(f.split(_))f=join(shift());eval(f)",
 253:a})("for(f='e/t/Y=e>6X=0Wq[bVW,V]U=256T<<S--R;)Q,vPf=O.eN=c;gN>>>k/n0for(;;cNif(;=f;n){c of g)h[c.stW;!],e[0],++]+==g	=d.l=1=v=[],}else{]={s:b:0.lengthddNW,dP=dOM=>{var k,n,a,c+Md,f,i,r,t,oPg,hqlbNT;bQo6P[Rb};oQVS4|Ro]W|(b+1S14)/(b+2)d,cRQv[b}*i	<1e7*T)k=(kS8|M[a)0i>1)t++;Oi8||i=n/(t+f)0;r=c=r<t&&r<(tf+))break;t-}c	OV=S4|Mathqrt(g-1)]46384-f<ftUe6cU-6,t,Oe}}k-=n*tcl[o=b=c,d2(2)8r=te=&&g)g[r=t+	=r||i}c	=gi+	N;g!;v)tN+v*2*(6+t),tiX*t?2+Y2:Y1.6PNeX?6:e,[v|e};v?g:();Rc;)d=];].l}h=[]]i=	Q!(g	))return l}}}';_=/[-N-Y]/.exec(f);)with(f.split(_))f=join(shift());eval(f)")
