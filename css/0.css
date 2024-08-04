@@ -1,4 +1,4 @@
-*{font-family:MS Gothic,monospace}
+*{box-sizing:border-box;font-family:MS Gothic,monospace}
 body,html,#ui{height:100%;margin:0;padding:0;overflow:hidden}
 textarea{resize:none}p{margin:0}
 .b textarea{display:block;width:100%;height:50%;border:0}
@@ -6,7 +6,7 @@ input,select,label{cursor:pointer;white-space:nowrap}
 input,select{font-size:inherit}
 label:hover{color:#44f}
 .h{background:#faf;height:1.5em;text-align:center}
-.b{background:#afa;left:0;right:0;top:1.5em;bottom:2em}
+.b{background:#afa;left:0;right:0;top:1.5em;bottom:1.5em}
 .f{background:#aaf;bottom:0;height:1.5em}
 .b,.f{position:absolute}
 .h,.f{width:100%}
