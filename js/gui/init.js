@@ -72,13 +72,13 @@ it.ondragover=function(e){this.style.background="#ccc";e=e||event;e.preventDefau
 it.ondragleave=function(){this.style.background="#fff"};
 it.ondrop=function(e){this.style.background="#fff";e=e||event;
 	var f=(e.dataTransfer||this).files[0],r=new FileReader;
-	e.preventDefault(e.stopPropagation());
+	e.preventDefault(e.stopPropagation(it.disabled=en.disabled=!0));
 	r.onload=async function(){
 		var t=new Date,a=new Uint8Array(r.result),b,c,d=ip2.selectedIndex,cs=ip2.options[d].value;
 		if(dae.checked)it.value=new TextDecoder(cs||"utf8").decode(a);
 		for(b of a)if(b>127){c=1;break}
 		b=await(mp.value|0?bestOrder(a,PPMe):PPMe(a,mo.value&255,rate));
-		done(b,a.length,b.length,!c,t,d&&cs)
+		done(b,a.length,b.length,!c,t,d&&cs);it.disabled=en.disabled=!1
 	};
 	r.readAsArrayBuffer(f)
 };
