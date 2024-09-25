@@ -1,55 +1,55 @@
 <title>it</title><meta charset=shift_jis><style>body,p{margin:0}p{background:#ddd}li{padding:0 0 .5em}code{border:1px solid gray;border-radius:4px;background:#ccc}</style>
 <h2>ppminy</h2>
-本作はweb素材(html,js等)の圧縮に特化したprogramである. PPMという手法を用いており,圧縮も展開もやや遅いが,素材が小さい場合は瞬時に完了する(設定と環境次第で激変)
+�{���web�f��(html,js��)�̈��k�ɓ�������program�ł���. PPM�Ƃ�����@��p���Ă���,���k���W�J�����x����,�f�ނ��������ꍇ�͏u���Ɋ�������(�ݒ�Ɗ�����Ō���)
 <h2>GUI</h2>
 <ul>
-	<li>手法<ol>
-		<li>tiny<p>復号器は最軽量、小さい素材に対して効果的
-		<li>II<p>遺伝法実装により圧縮率向上
-		<li>II2<p>上記の改良型. 最も微妙な性能
-		<li>II+SEE<p>Secondary Escape Estimation(SEE)実装. 大き目の素材が好物
-		<li>II+SEE2<p>SEEを追加実装. 復号器は最大. 超巨大っポイ素材の圧縮に向いている</ol>
-	<li>order<p>予測に用いる文脈の長さ指定. 限度は15(tiny), 31(II,II2), 63(II+SEE,II+SEE2)となる. 長い方が高圧縮率になる事もあるが,速度が犠牲になり空間消費量も増大,最悪の場合死に至るわけがない
-	<li>encode<p>textareaに入力した文字列を圧縮. 圧縮前にUnicodeからoptionで指定したcharsetに変換され. <b>全ての<code>\r, \r\n</code>を<code>\n</code>とみなす</b>
+	<li>��@<ol>
+		<li>tiny<p>������͍Ōy�ʁA�������f�ނɑ΂��Č��ʓI
+		<li>II<p>��`�@�����ɂ�舳�k������
+		<li>II2<p>��L�̉��ǌ^. �ł������Ȑ��\
+		<li>II+SEE<p>Secondary Escape Estimation(SEE)����. �傫�ڂ̑f�ނ��D��
+		<li>II+SEE2<p>SEE��ǉ�����. ������͍ő�. ��������|�C�f�ނ̈��k�Ɍ����Ă���</ol>
+	<li>order<p>�\���ɗp���镶���̒����w��. ���x��15(tiny), 31(II,II2), 63(II+SEE,II+SEE2)�ƂȂ�. �������������k���ɂȂ鎖�����邪,���x���]���ɂȂ��ԏ���ʂ�����,�ň��̏ꍇ���Ɏ���킯���Ȃ�
+	<li>encode<p>textarea�ɓ��͂�������������k. ���k�O��Unicode����option�Ŏw�肵��charset�ɕϊ�����. <b>�S�Ă�<code>\r, \r\n</code>��<code>\n</code>�Ƃ݂Ȃ�</b>
 	<li>do<ul>
-		<li>eval<p>復号後の文字列をJavaScriptとみなして実行
-		<li>write<p>復号後の文字列を書き出す. 通常htmlと御一緒に用いる
-		<li>stored<p>復号後の文字列を変数に格納. 変数名は[variable name]の項目で設定
+		<li>eval<p>������̕������JavaScript�Ƃ݂Ȃ��Ď��s
+		<li>write<p>������̕�����������o��. �ʏ�html�ƌ�ꏏ�ɗp����
+		<li>stored<p>������̕������ϐ��Ɋi�[. �ϐ�����[variable name]�̍��ڂŐݒ�
 		</ul>
-	<li>textarea(上段)<p>ここに投下したfileは圧縮される. その場合[encode]を押下した場合と異なり,改行類は原型のまま扱う. ついでにUnicodeから変換する手順も省略
-	<li>textarea(下段)<p>圧縮結果が出力される. 編集するなり焼くなりご自由に
-	<li>multi-pass #<p>複数回圧縮を試みて最適なorderを選択. 0=無効, 1以上で #+2 回試行. 最大63. orderの設定は自動更新されるので注意
-	<li>variable name<p>復号後の文字列を格納する変数の名前を設定. [do - stored] を選択していた場合に意味をなす.
-		<p>変数名だけでなく <code>document.body.innerHTML</code>, <code>element.textContent</code>, <code>class.prototype.text</code> などといったobjectも対象できる.
-		<p><code>[^\w$.]+</code> のみからなる文字列を入力すると, 自動的に復号器の名前を採用します(bかf). 例えば, <code>#%&</code> -&gt; <code>b</code> 等となる
+	<li>textarea(��i)<p>�����ɓ�������file�͈��k�����. ���̏ꍇ[encode]�����������ꍇ�ƈقȂ�,���s�ނ͌��^�̂܂܈���. ���ł�Unicode����ϊ�����菇���ȗ�
+	<li>textarea(���i)<p>���k���ʂ��o�͂����. �ҏW����Ȃ�Ă��Ȃ育���R��
+	<li>multi-pass #<p>�����񈳏k�����݂čœK��order��I��. 0=����, 1�ȏ�� #+2 �񎎍s. �ő�63. order�̐ݒ�͎����X�V�����̂Œ���
+	<li>variable name<p>������̕�������i�[����ϐ��̖��O��ݒ�. [do - stored] ��I�����Ă����ꍇ�ɈӖ����Ȃ�.
+		<p>�ϐ��������łȂ� <code>document.body.innerHTML</code>, <code>element.textContent</code>, <code>class.prototype.text</code> �ȂǂƂ�����object���Ώۂł���.
+		<p><code>[^\w$.]+</code> �݂̂���Ȃ镶�������͂����, �����I�ɕ�����̖��O���̗p���܂�(b��f). �Ⴆ��, <code>#%&</code> -&gt; <code>b</code> ���ƂȂ�
 	<li>format<ul>
-		<li>js<p>純粋js fileと同等. 出力fileの拡張子はjsが既定値
-		<li>html<p>圧縮結果をhtmlで囲む. そのhtmlをformat欄の上段textareaと下段textareで指定する. 出力fileの拡張子はhtmが既定値
-			<p>presetでhtmlの雛型を召喚する(meta要素のcharset属性はbase253ならl1, それ以外はutf8が既定値)</ul>
+		<li>js<p>����js file�Ɠ���. �o��file�̊g���q��js������l
+		<li>html<p>���k���ʂ�html�ň͂�. ����html��format���̏�itextarea�Ɖ��itextare�Ŏw�肷��. �o��file�̊g���q��htm������l
+			<p>preset��html�̐��^����������(meta�v�f��charset������base253�Ȃ�l1, ����ȊO��utf8������l)</ul>
 	<li>charset<ul>
 		<li>inText<ul>
-			<li>utf-8, Latin1<p>textareaの文字列(Unicode)を選択した方式に変換
-			<li>10d<p>10進数列(<code>0,10,99,255...</code>)で入力. 区切り文字は<code>[^0-9]</code>
-			<li>16h<p>16進数列(<code>00,0A,99,FF...</code>)で入力. 区切り文字は<code>[^0-9A-Fa-f]</code></ul>
-		<li>inFile<p>file投下して圧縮した場合に復号器に書き込む文字符号を指定. また,上段textaraにfileを投下した時に埋め込む文字列の符号化方式もこれが反映する
+			<li>utf-8, Latin1<p>textarea�̕�����(Unicode)��I�����������ɕϊ�
+			<li>10d<p>10�i����(<code>0,10,99,255...</code>)�œ���. ��؂蕶����<code>[^0-9]</code>
+			<li>16h<p>16�i����(<code>00,0A,99,FF...</code>)�œ���. ��؂蕶����<code>[^0-9A-Fa-f]</code></ul>
+		<li>inFile<p>file�������Ĉ��k�����ꍇ�ɕ�����ɏ������ޕ����������w��. �܂�,��itextara��file�𓊉��������ɖ��ߍ��ޕ�����̕��������������ꂪ���f����
 		<li>output<ul>
-			<li>base64<p>圧縮文は<code>[0-9A-Za-z+/]</code>のみからなる文字列となる. 膨張率約33%. 復号回路は最小. gzipで再圧縮しやすい
-			<li>base122<p>圧縮文は<code>[\1-\t\x0B\x0C\x0E-!#-%'-[]-\xff\u0180-\u01ff\u0280-\u02ff\u0380-\u03ff\u0480-\u04ff\u0580-\u05ff]</code>のみからなる文字列となる. 膨張率約14%. <b>文字符号はutf8として保存すべし</b>. 復号回路は最大
-			<li>base253<p>圧縮文は<code>[\0-\x0C\x0D-\xFF]</code>のみからなる文字列となる. 膨張率約1.2%. <b>NUL文字(\0)は複写や貼り付け不能. 文字符号はlatin1(iso-8859-1)として保存すべし</b></ul>
+			<li>base64<p>���k����<code>[0-9A-Za-z+/]</code>�݂̂���Ȃ镶����ƂȂ�. �c������33%. ������H�͍ŏ�. gzip�ōĈ��k���₷��
+			<li>base122<p>���k����<code>[\1-\t\x0B\x0C\x0E-!#-%'-[]-\xff\u0180-\u01ff\u0280-\u02ff\u0380-\u03ff\u0480-\u04ff\u0580-\u05ff]</code>�݂̂���Ȃ镶����ƂȂ�. �c������14%. <b>����������utf8�Ƃ��ĕۑ����ׂ�</b>. ������H�͍ő�
+			<li>base253<p>���k����<code>[\0-\x0C\x0E-\xFF]</code>�݂̂���Ȃ镶����ƂȂ�. �c������1.2%. <b>NUL����(\0)�͕��ʂ�\��t���s�\. ����������latin1(iso-8859-1)�Ƃ��ĕۑ����ׂ�</b></ul>
 		</ul>
-	<li>RawDecoder<p>無圧縮の復号器を生成. gzipで再圧縮しやすくなる
-	<li>drop &amp; embed text<p>textareaにfileを投下すると同時に文字列を埋め込む. 無効にしておくと描画処理を省く分高速. ついでに空間消費量も節約
-	<li>links gain only<p>圧縮結果が元fileより小さければdownload用URLを生成
+	<li>RawDecoder<p>�����k�̕�����𐶐�. gzip�ōĈ��k���₷���Ȃ�
+	<li>drop &amp; embed text<p>textarea��file�𓊉�����Ɠ����ɕ�����𖄂ߍ���. �����ɂ��Ă����ƕ`�揈�����Ȃ�������. ���łɋ�ԏ���ʂ��ߖ�
+	<li>links gain only<p>���k���ʂ���file��菬�������download�pURL�𐶐�
 	<li>files<ul>
-		<li>kill<p>圧縮結果を全て破棄
-		<li>LOAD<p>fileを開いて圧縮開始
-		<li>Save<p>圧縮結果を全て保存</ul>
-	<li>Download<p>下段textareaの内容保存
-	<li>Test<p>別窓を開いてその中身に下段textareaの内容を埋め込む
-	<li>Reset<p>初期化
+		<li>kill<p>���k���ʂ�S�Ĕj��
+		<li>LOAD<p>file���J���Ĉ��k�J�n
+		<li>Save<p>���k���ʂ�S�ĕۑ�</ul>
+	<li>Download<p>���itextarea�̓��e�ۑ�
+	<li>Test<p>�ʑ����J���Ă��̒��g�ɉ��itextarea�̓��e�𖄂ߍ���
+	<li>Reset<p>������
 </ul>
-<h2>作者</h2>
-<p>da0ka. 連絡先da0ja@yahoo.co.jp
+<h2>���</h2>
+<p>da0ka. �A����da0ja@yahoo.co.jp
 <h2>license</h2>
 <p>MIT license
-<p>programを使用した結果については作者は一切責任を負わないので安心して下さい。責任利益損害全て利用者様のものです
+<p>program���g�p�������ʂɂ��Ă͍�҂͈�ؐӔC�𕉂�Ȃ��̂ň��S���ĉ������B�ӔC���v���Q�S�ė��p�җl�̂��̂ł�

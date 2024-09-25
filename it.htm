@@ -35,7 +35,7 @@ This program is web contents compressor like html, js, inline css, inline svg, e
 		<li>output<ul>
 			<li>base64<p>compressed data -&gt; <code>[0-9A-Za-z+/]</code>. the overhead is 33%. charset is utf8. decoder is smallest. gzip loves it.
 			<li>base122<p>compressed data -&gt; <code>[\1-\t\x0B\x0C\x0E-!#-%'-[]-\xff\u0180-\u01ff\u0280-\u02ff\u0380-\u03ff\u0480-\u04ff\u0580-\u05ff]</code>. the overhead is 14%. <b>saved charset must be utf8</b>. decoder is biggest.
-			<li>base253<p>compressed data -&gt; <code>[\0-\x0C\x0D-\xFF]</code>. the overhead is 1.2%. maybe <b>\0 is not visible and can't be copied &amp; paste. saved charset must be latin1(iso-8859-1)</b>.</ul>
+			<li>base253<p>compressed data -&gt; <code>[\0-\x0C\x0E-\xFF]</code>. the overhead is 1.2%. maybe <b>\0 is not visible and can't be copied &amp; paste. saved charset must be latin1(iso-8859-1)</b>.</ul>
 		</ul>
 	<li>RawDecoder<p>output raw decoder(fat) compressible by gzip. base64+it is more compressible.
 	<li>drop &amp; embed text<p>embed text into textarea when drop file there. disabled is useful to avoid rendering large text that is slow.
