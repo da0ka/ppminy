@@ -9,7 +9,7 @@ input,select,label{cursor:pointer;text-shadow:1px 1px #000;white-space:nowrap}
 textarea{background:transparent;overflow:auto;resize:none}
 .t2t{height:100%;display:flex;flex-direction:column}
 .t2t textarea{height:50%}
-textarea,#res{width:100%}
+textarea,#res{width:100%;text-align:left}
 input[type=file]{display:none}
 #oform{padding:0 .5em;line-height:1.5em;overflow:auto;position:absolute;top:1.2em;bottom:0}
 
@@ -428,15 +428,15 @@ s=>{for(var q,j=1,a=1,c=s[0],d,e,f,h,i,k,r,t,o=0,v=[],g=v,n=[],m=[],p=[],M=[],u=
 
 // process for textarea
 	const toCode=["EU16","EU16A","SJU","U8"],toBase=[64,85,91,122,32768],
-		rate=(a,z)=>g("res").style.width=g("res").value=(a/z*1e4|0)/100+"%",
+		rate=(a,z)=>info.style.width=info.value=(a/z*1e4|0)/100+"%",
 		done=(O,a,z)=>rate(1,1);
 
 	g("en").onclick=async function(){
 		var i=op.selectedIndex,a=CharCoder["e"+toCode[ip.selectedIndex]](it.value),
 			b=await PPMe[type.selectedIndex](a,order.value,done,rate),
-			c=ot.value=i<5?Base["e"+toBase[i]](b):i<6?b+"":dec2hex(b),d=b.length;
+			c=ot.value=i<5?Base["e"+toBase[i]](b):i<6?b+"":dec2hex(b),d=c.length;
 		d=i<3||i>4?d:i<4?u8s(c):d*2;
-		res.value=a.length+" -> "+d
+		res.value=a.length+" -> "+b.length+" -> "+d
 	}
 	g("de").onclick=async function(){
 		var i=op.selectedIndex,a=ot.value,b,c=a.length;
