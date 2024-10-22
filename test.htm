@@ -432,20 +432,20 @@ s=>{for(var q,j=1,a=1,c=s[0],d,e,f,h,i,k,r,t,o=0,v=[],g=v,n=[],m=[],p=[],M=[],u=
 		done=(O,a,z)=>rate(1,1);
 
 	g("en").onclick=async function(){
-		var i=op.selectedIndex,a=CharCoder["e"+toCode[ip.selectedIndex]](it.value),
+		var i=op.selectedIndex,a=CharCoder["e"+toCode[ip.selectedIndex]](it.value),t=new Date,
 			b=await PPMe[type.selectedIndex](a,order.value,done,rate),
 			c=ot.value=i<5?Base["e"+toBase[i]](b):i<6?b+"":dec2hex(b),d=c.length;
 		d=i<3||i>4?d:i<4?u8s(c):d*2;
-		res.value=a.length+" -> "+b.length+" -> "+d
+		res.value=a.length+" -> "+b.length+" -> "+d+" in "+(new Date-t)+"ms"
 	}
-	g("de").onclick=async function(){
+	g("de").onclick=async function(t){
 		var i=op.selectedIndex,a=ot.value,b,c=a.length;
 		if(i<3&&/[^\1-\x7f]/.test(a))return res.value="bad string";
 		if(/[\u3400-\uC1FF]/.test(a))i=4;
 		c=i<3||i>4?c:i<4?u8s(a):c*2;
-		b=i<5?Base["d"+toBase[i]](a):i<6?str2dec(a):hex2dec(a);
+		b=i<5?Base["d"+toBase[i]](a):i<6?str2dec(a):hex2dec(a);t=new Date;
 		it.value=CharCoder["d"+toCode[ip.selectedIndex]](a=await PPMd[type.selectedIndex](b,done,rate));
-		res.value=c+" -> "+b.length+" -> "+a.length
+		res.value=c+" -> "+b.length+" -> "+a.length+" in "+(new Date-t)+"ms"
 	}
 })(a=>document.getElementById(a));
 //////////////// binary to ascii ///////////////////
