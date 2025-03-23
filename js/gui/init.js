@@ -125,6 +125,6 @@ async function bestOrder(A,codec){
 	for(var a=0,b=A.length,c,d,e,z=(mp.value&63)+2;a<z;e=c){
 		c=await codec(A,a++,rate),d=c.length;
 		if(d>b)break;b=d
-	}mo.value=a-2;
+	}mo.value=e?a-2:a-1;
 	return e||c
 }
