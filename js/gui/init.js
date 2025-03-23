@@ -84,9 +84,9 @@ it.ondrop=function(e){this.style.background="#fff";e=e||event;
 };
 dl.onclick=function(a,t){
 	if(t=ot.value.trim())
-		a=document.createElement("a"),a.href=URL.createObjectURL(new Blob([s2b(t)])),
+		a=document.createElement("a"),
 		a.download=js.checked?"a.js":"a.htm",
-		a.click(),URL.revokeObjectURL(a.href);
+		URL.revokeObjectURL(a.href=URL.createObjectURL(new Blob([s2b(t)])),a.click());
 	else rt.value="output nothing!"
 };
 save.onclick=function(){
